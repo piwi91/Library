@@ -1,0 +1,23 @@
+{
+    "name": "piwi91/library",
+    "description": "Piwi91 personal PHP library",
+    "keywords": ["piwi91","library"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pim Widdershoven",
+            "email": "pimwiddershoven@gmail.com",
+            "homepage": "http://www.pimwiddershoven.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+    },
+    "autoload": {
+        "psr-4": {
+            "Piwi\\": "src/"
+        }
+    }
+}
