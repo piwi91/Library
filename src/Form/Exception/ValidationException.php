@@ -16,6 +16,6 @@ class ValidationException extends \Symfony\Component\Form\Exception\RuntimeExcep
      */
     public function __construct($name, $code = 0, Exception $previous = null)
     {
-        parent::__construct(sprintf('The form \'%s\' is invalid'), $code, $previous);
+        parent::__construct(sprintf('The form \'%s\' is invalid', $name), $code, $previous);
     }
 }
