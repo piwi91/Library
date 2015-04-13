@@ -2,6 +2,7 @@
 
 namespace Piwi\Form\Handler;
 
+use Piwi\Form\Exception\ValidationException;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,12 +24,14 @@ interface FormHandlerInterface
     public function form($data = null, array $options = []);
 
     /**
-     * Process form and return false if the form is invalid
+     * Process form and return form data after processing or throws exception if invalid
      *
      * @param FormInterface $form
      * @param Request $request
      *
-     * @return bool
+     * @throws ValidationException
+     *
+     * @return mixed
      */
     public function process(FormInterface $form, Request $request);
 }

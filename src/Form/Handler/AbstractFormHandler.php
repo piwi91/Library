@@ -2,6 +2,7 @@
 
 namespace Piwi\Form\Handler;
 
+use Piwi\Form\Exception\ValidationException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormTypeInterface;
@@ -37,12 +38,7 @@ abstract class AbstractFormHandler implements FormHandlerInterface
     }
 
     /**
-     * Get the initialized form
-     *
-     * @param null $data
-     * @param array $options
-     *
-     * @return FormInterface
+     * {@inheritdoc}
      */
     public function form($data = null, array $options = [])
     {
@@ -50,16 +46,23 @@ abstract class AbstractFormHandler implements FormHandlerInterface
     }
 
     /**
-     * Process form and return false if the form is invalid
-     *
-     * @param FormInterface $form
-     * @param Request $request
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     public function process(FormInterface $form, Request $request)
     {
         // Handle the request
         $form->handleRequest($request);
+    }
+
+    /**
+     * Create validation exception
+     *
+     * @param FormInterface $form
+     *
+     * @return ValidationException
+     */
+    protected function createValidationException(FormInterface $form)
+    {
+        return new ValidationException($form->getName());
     }
 }
