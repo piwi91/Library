@@ -1,6 +1,6 @@
 <?php
 
-namespace Piwi\Model\Form\Handler;
+namespace Piwi\Form\Handler;
 
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
