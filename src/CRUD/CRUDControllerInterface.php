@@ -49,5 +49,5 @@ interface CRUDControllerInterface
      *
      * @return Response
      */
-    public function deleteAction($id);
+    public function deleteAction(Request $request, $id);
 }
