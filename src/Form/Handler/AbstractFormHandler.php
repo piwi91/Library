@@ -63,6 +63,6 @@ abstract class AbstractFormHandler implements FormHandlerInterface
      */
     protected function createValidationException(FormInterface $form)
     {
-        return new ValidationException($form->getName());
-    }
+        return new ValidationException($form);
+}
 }
