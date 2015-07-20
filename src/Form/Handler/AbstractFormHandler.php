@@ -52,6 +52,10 @@ abstract class AbstractFormHandler implements FormHandlerInterface
     {
         // Handle the request
         $form->handleRequest($request);
+
+        if (!$form->isSubmitted()) {
+            return;
+        }
     }
 
     /**
