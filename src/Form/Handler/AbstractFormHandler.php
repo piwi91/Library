@@ -21,20 +21,20 @@ abstract class AbstractFormHandler implements FormHandlerInterface
     protected $formFactory;
 
     /**
-     * @var FormTypeInterface
+     * @var string
      */
     protected $formType;
 
     /**
      * @param FormFactoryInterface $formFactory
-     * @param FormTypeInterface $formType
+     * @param FormTypeInterface|string $formType
      */
     public function __construct(
         FormFactoryInterface $formFactory,
-        FormTypeInterface $formType
+        $formType
     ) {
         $this->formFactory = $formFactory;
-        $this->formType = $formType;
+        $this->formType = is_object($formType) ? get_class($formType) : $formType;
     }
 
     /**
